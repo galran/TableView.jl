@@ -1,0 +1,39 @@
+
+
+h1 {
+	font-size: xx-large;
+	color: blue;
+}
+
+
+h2 {
+	font-size: large;
+	color: blue;
+}
+
+span.small-seperator {
+	font-size: large;
+	color: blue;
+}
+
+ul {
+	color: blue;
+}
+
+li {
+    font-size: 14px;
+    margin-left: 20px;
+    list-style-type: circle;
+ }
+
+
+ .example-style-red {
+	background-color: lightcoral;
+  }
+  .example-style-green {
+	background-color: lightgreen;
+  }
+  .example-style-amber {
+	background-color: lightsalmon;
+  }
+  
