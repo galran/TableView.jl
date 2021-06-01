@@ -1,0 +1,6 @@
+ObjectID,Comment,ObjectType,Position,RelativeTo,Material,Parameters
+Obj1,rays start here,SOURCE,,,,
+L1,this is a lens,Spherical Lens,"(1,2,3,90,90,0)",0 (i.e.  Origin),BK7,
+STOP,stop!!!,STOP,,,,
+L2,this is a lens,Spherical Lens,"(1,2,L1.Thickness+10mm, 0,0,0)",,BK7,
+DET1,the end,DETECTOR,,,,
