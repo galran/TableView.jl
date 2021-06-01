@@ -68,7 +68,7 @@ Optional arguments:
 """
 function showtable(table;
         options::Dict{Symbol, Any} = Dict{Symbol, Any}(),
-        option_mutator! = identity,
+        option_mutator! = nothing,
         dark::Bool = false,
         title::String = "",
         height = :auto,
@@ -210,7 +210,7 @@ end
 function _showtable_sync!(w, schema, types, rows, tablelength, id, options, option_mutator!)
     options[:rowData] = JSONText(table2json(schema, rows, types))
 
-    option_mutator!(options)
+    (option_mutator! !== nothing) && option_mutator!(options, w)
 
     license = get(ENV, "AG_GRID_LICENSE_KEY", nothing)
     handler = @js function (RowNumberRenderer, agGrid)
@@ -255,7 +255,7 @@ function _showtable_async!(w, schema, types, rows, tablelength, id, options, opt
     )
     license = get(ENV, "AG_GRID_LICENSE_KEY", nothing)
 
-    option_mutator!(options)
+    (option_mutator! !== nothing) && option_mutator!(options, w)
 
     handler = @js function (RowNumberRenderer, agGrid)
         @var gridOptions = $options
@@ -312,4 +312,9 @@ function table2json(schema, rows, types; requested = nothing)
     JSON.end_array(rowwriter)
     String(take!(io))
 end
+
+include("TableViewAdvanced.jl")
+export TableViewAdvanced
+
 end
+
